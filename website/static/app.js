@@ -227,7 +227,7 @@ function addSummary() {
         ul.classList.add('messages')
         new_li_2 = document.createElement('li');
         new_li_2.classList.add('computer-message');
-        new_li_2.innerText = "Summary: " + resp;
+        new_li_2.innerText = "Summary:\n" + resp;
         ul.appendChild(new_li_2);
 
         newMessageHolder = document.createElement('div');
@@ -264,7 +264,7 @@ function addQuiz() {
         ul.classList.add('messages');
         new_li_3 = document.createElement('li');
         new_li_3.classList.add('computer-message');
-        new_li_3.innerText = "Question: " + resp["question"] + ` (from paragraph ${resp["reference"]})`;
+        new_li_3.innerText = "Question: " + ' (from paragraph ${resp["reference"]})\n' + resp["question"];
         ul.appendChild(new_li_3);
 
         newMessageHolder = document.createElement('div');
@@ -292,7 +292,7 @@ function addQuiz() {
             ul.classList.add('messages');
             new_li_3 = document.createElement('li');
             new_li_3.classList.add('computer-message');
-            new_li_3.innerText = "Answer: " + resp["answer"];
+            new_li_3.innerText = "Answer:\n" + resp["answer"];
             ul.appendChild(new_li_3);
             newMessageHolder = document.createElement('div');
             newMessageHolder.classList.add('message-holder');

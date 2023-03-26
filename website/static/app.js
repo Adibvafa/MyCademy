@@ -303,14 +303,6 @@ function addQuiz() {
             messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
         });
     });
-    
-    
-    // for (let i = 1; i <= 3; i++) {
-        //     console.log(`Input ${i}:`);
-        //     waitForSubmit().then(userInput => {
-            //       console.log(`User input ${i}: ${userInput}`);
-            //     });
-            // }  
 }
 
 function handleSubmit() {
@@ -319,22 +311,6 @@ function handleSubmit() {
     console.log(`User input received: ${userInput}`);
     });
 }      
-
-// function handleSubmit() {
-//     console.log('Waiting for user input...');
-  
-//     // call waitForSubmit() three times in a for loop
-//     for (let i = 1; i <= 3; i++) {
-//       console.log(`Input ${i}:`);
-//       waitForSubmit().then(userInput => {
-//         console.log(`User input ${i}: ${userInput}`);
-//       });
-//     }
-//   }
-
-
-//   const textbox = document.getElementById('my-textbox');
-//   const submitButton = document.getElementById('my-submit-button');
   
 function waitForSubmit() {
     return new Promise(resolve => {
@@ -368,45 +344,3 @@ function waitForSubmit() {
         submitButton.addEventListener('click', handleInput);
     });
 }
-  
-//   function handleSubmit() {
-//     console.log('Waiting for user input...');
-//     waitForSubmit().then(userInput => {
-//       console.log(`User input received: ${userInput}`);
-//     });
-//   }
-  
-//   submitButton.addEventListener('click', handleSubmit);
-
-
-// // Create an observable
-// const observable = new rxjs.Observable((subscriber) => {
-//     // Subscribe to the keydown event
-//     const keydownSubscription = fromEvent(textInput, 'keydown').subscribe((event) => {
-//       if (event.key === 'Enter' && isQuiz === false) {
-//         subscriber.next('keydown');
-//       }
-//     });
-    
-//     // Subscribe to the click event
-//     const clickSubscription = fromEvent(submitButton, 'click').subscribe(() => {
-//       if (isQuiz === false) {
-//         subscriber.next('click');
-//       }
-//     });
-    
-//     // Return the unsubscribe function
-//     return () => {
-//       keydownSubscription.unsubscribe();
-//       clickSubscription.unsubscribe();
-//     };
-//   });
-  
-//   // Subscribe to the observable
-//   const subscription = observable.subscribe((value) => {
-//     if (value === 'keydown' || value === 'click') {
-//       addUserMessage();
-//       subscription.unsubscribe(); // Unsubscribe from the observable
-//     }
-//   });
-  

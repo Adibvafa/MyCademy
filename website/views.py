@@ -29,7 +29,6 @@ views = Blueprint('views', __name__)
 
 
 @views.route('/', methods=['GET', 'POST'])
-# @login_required
 def home():
     if request.method == 'POST':
         query = request.form.get('query')

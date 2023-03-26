@@ -264,7 +264,7 @@ function addQuiz() {
         ul.classList.add('messages');
         new_li_3 = document.createElement('li');
         new_li_3.classList.add('computer-message');
-        new_li_3.innerText = "Question: " + ' (from paragraph ${resp["reference"]})\n' + resp["question"];
+        new_li_3.innerText = `Question: (from paragraph ${resp["reference"]})\n${resp["question"]}`;
         ul.appendChild(new_li_3);
 
         newMessageHolder = document.createElement('div');

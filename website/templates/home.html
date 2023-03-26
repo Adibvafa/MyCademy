@@ -1,0 +1,54 @@
+{% extends 'base.html' %} 
+{% block title %}Search Generator{% endblock %} 
+{% block content %}
+
+<div class="my-container">
+  <div class="row justify-content-center form-holder">
+    <div class="col-md-10 col-lg-8">
+      <h1 class="text-center my-h1" id="larger-text">MyCademy</h1>
+      <h1 class="text-center my-h1">Custom Webpage On Any Topic!</h1>
+
+      <form class="my-form-control" method="POST">
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            id="query"
+            name="query"
+            rows="2"
+            placeholder="Write the question you like to explore further..."
+          ></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary my-btn">
+            Submit Prompt
+          </button>
+          <h1 class="text-center my-h2"></h1>
+          <div class="text-center message-container"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- <img src="{{ url_for('static', filename='images/Spinner-1s-200px.png') }}" alt=""> -->
+</div>
+
+<!--   
+<div class="progress">
+
+
+</div> -->
+
+<!-- would go below opening form tag -->
+<!-- <ul class="list-group list-group-flush" id="notes">
+</ul> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".my-btn").click(function () {
+      // display the message
+      $(".message-container").text("Loading... (Estimated Time: 45 Seconds)");
+    });
+  });
+</script>
+{% endblock %}
+<!-- this goes in between the li for notes -->
+<!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick="deleteNote({{ note.id }})"></button> -->

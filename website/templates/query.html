@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Query{% endblock %}
+
+{% block content %}
+<div class="big-container">
+    <div id="content-page">
+        <div id="inner-content">
+            <h1 id="prompt-h1">{{ prompt }}</h1>
+            {% for i in range(courseParagraphs |length) %}
+            <p class="content-paragraphs"><b>{{ courseHeaders[i] }}</b> <br> {{ courseParagraphs[i] }}</p>
+            <img src="{{ courseImages[i] }}" class="content-images" alt="">
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="input-page">
+        <div id="messages-display">
+            <!-- <div class="message-holder"> -->
+            <!-- <ul class="messages">
+                    <li>kdsjfdjsflkjdf;kjsdf</li>
+                    <li>kdsjfdjsflkjdf;kjsdf</li>
+                    <li>kdsjfdjsflkjdf;kjsdf</li>
+                    <li>kdsjfdjsflkjdf;kjsdf</li>
+                </ul> -->
+            <!-- </div> -->
+        </div>
+        <div id="input-area">
+            <div id="message-box">
+                <input type="text" id="message-input" placeholder="Type message..."></input>
+                <button type="submit" id="message-submit">Send</button>
+            </div>
+            <div id="button-area">
+                <button id="gen-quiz" class="btn btn-primary my-btn">Quiz Me!</button>
+                <button id="gen-summary" class="btn btn-primary my-btn">Summarize</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

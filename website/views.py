@@ -21,6 +21,7 @@ import random
 prompt = "default"
 courseParagraphs = []
 courseImages = []
+courseHeaders = []
 
 # usually easier to keep the name the same as the file
 views = Blueprint('views', __name__)
@@ -37,10 +38,15 @@ def home():
         if len(query) < 1:
             flash('Query is too short!', category="error")
         else:
-            global prompt, courseParagraphs, courseImages
+            global prompt, courseParagraphs, courseImages, courseHeaders
             prompt = string.capwords(query, sep=None)
 
-            courseParagraphs, courseImages = Create_Course(query)
+            temp, courseImages = Create_Course(query)
+
+            for i in range(len(temp)):
+                courseHeaders.append(temp[i][:temp[i].find(':') + 1])
+                courseParagraphs.append(temp[i][temp[i].find(':') + 2:])
+
             return redirect(url_for('views.query'))
             # new_note = Note(data=note, user_id=current_user.id)
             # print(current_user.id)
@@ -53,7 +59,7 @@ def home():
 
 @views.route('/query', methods=['GET', 'POST'])
 def query():
-    return render_template('query.html', prompt=prompt, courseParagraphs=courseParagraphs, courseImages=courseImages)
+    return render_template('query.html', prompt=prompt, courseParagraphs=courseParagraphs, courseImages=courseImages, courseHeaders=courseHeaders)
 
 
 @views.route('/generate-response', methods=['POST'])

@@ -9,13 +9,14 @@
             <h1 id="prompt-h1">{{ prompt }}</h1>
             {% for i in range(courseParagraphs |length) %}
             {% if i == 0 %}
-            <p class="content-paragraphs">{{ i + 1 }}: {{ courseParagraphs[i] }}</p>
+            
+            <p class="content-paragraphs"><b>{{ i + 1 }}: {{ courseHeaders[i] }}</b> <br> {{ courseParagraphs[i] }}</p>
             <img src="{{ courseImages[0] }}" class="content-images" alt="">
-            {% elif i == (courseParagraphs |length) - 3%}
-            <p class="content-paragraphs">{{ i + 1 }}: {{ courseParagraphs[i] }}</p>
+            {% elif i == (courseParagraphs |length) - 3 %}
+            <p class="content-paragraphs"><b>>{{ i + 1 }}: {{ courseHeaders[i] }}</b> <br> {{ courseParagraphs[i] }}</p>
             <img src="{{ courseImages[1] }}" class="content-images" alt="">
             {% else %}
-            <p class="content-paragraphs without-image">{{ i + 1 }}: {{ courseParagraphs[i] }}</p>
+            <p class="content-paragraphs without-image"><b>>{{ i + 1 }}: {{ courseHeaders[i] }}</b> <br> {{ courseParagraphs[i] }}</p>
 
             {% endif %}
             {% endfor %}

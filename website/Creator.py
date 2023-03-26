@@ -164,7 +164,7 @@ def Create_Paragraph(user_input, topic):
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": paragraph_prompt}],
         temperature=0.1,
-        max_tokens=250,
+        max_tokens=200,
         top_p=0.95)
 
     return paragraph_response['choices'][0]['message']['content'].strip()

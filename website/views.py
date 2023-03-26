@@ -45,7 +45,7 @@ def home():
 
             for i in range(len(temp)):
                 courseHeaders.append(temp[i][:temp[i].find(':') + 1])
-                courseParagraphs.append(temp[i][temp[i].find(':') + 2:])
+                courseParagraphs.append(temp[i][temp[i].find(':') + 1:])
 
             return redirect(url_for('views.query'))
             # new_note = Note(data=note, user_id=current_user.id)

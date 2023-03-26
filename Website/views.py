@@ -26,6 +26,8 @@ courseImages = []
 views = Blueprint('views', __name__)
 
 # homepage
+
+
 @views.route('/', methods=['GET', 'POST'])
 # @login_required
 def home():
@@ -49,9 +51,11 @@ def home():
 
     return render_template("home.html")
 
+
 @views.route('/query', methods=['GET', 'POST'])
 def query():
     return render_template('query.html', prompt=prompt, courseParagraphs=courseParagraphs, courseImages=courseImages)
+
 
 @views.route('/generate-response', methods=['POST'])
 def generate_response():
@@ -60,12 +64,14 @@ def generate_response():
     print(promptText)
     return jsonify({"resp": Answer_Question(promptText)})
 
+
 @views.route('/generate-summary', methods=['POST'])
 def generate_summary():
     # prompt = json.loads(request.data)
     # promptText = prompt['text']
     # print(promptText)
     return jsonify({"resp": Create_Summary(courseParagraphs)})
+
 
 @views.route('/generate-quiz', methods=['POST'])
 def generate_quiz():
@@ -77,15 +83,3 @@ def generate_quiz():
     question = get_question(courseParagraphs)
     print(question)
     return jsonify({"question": question["question"], "reference": question["reference"], "answer": question["answer"]})
-
-# @views.route('/delete-note', methods=['POST'])
-# def delete_note():
-#     note = json.loads(request.data)      # loads as a dictionary object
-#     noteId = note['noteId']
-#     note = Note.query.get(noteId)
-#     if note:
-#         if note.user_id == current_user.id:
-#             db.session.delete(note)
-#             db.session.commit()
-    
-#     return jsonify({})

@@ -4,13 +4,16 @@ Creator.py
 Create course with text and images using Create_Course
 """
 
+
 import os
 import openai
-openai.api_key = "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"
 
 from PIL import Image
 import requests
 from io import BytesIO
+
+secret_api_key = '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'
+openai.api_key = secret_api_key
 
 
 def Create_Course(user_input):
@@ -18,19 +21,20 @@ def Create_Course(user_input):
     Returns list of paragraphs, and list of images for index 0 and -3
     :param user_input: Input of user
     """
-    person_prompt = "Who is a good person to create a course on the topic " + user_input + \
-                    ". Give the answer as maximum 4 words"
+    # person_prompt = "Who is a good person to create a course on the topic " + user_input + ". Give the answer as
+    # maximum 4 words"
 
-    person_response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "user", "content": person_prompt}],
-        temperature=0.1,
-        max_tokens=6,
-        top_p=0.95,
-    )
-    person = person_response["choices"][0]["message"]["content"]
+    # person_response = openai.ChatCompletion.create(
+    #     model="gpt-3.5-turbo",
+    #     messages=[{"role": "user", "content": person_prompt}],
+    #     temperature=0.1,
+    #     max_tokens=6,
+    #     top_p=0.95,
+    # )
+    # person = person_response["choices"][0]["message"]["content"]
 
-    begin_prompt = "You have to act as a " + person + 'Give a professional course on '
+    begin_prompt = "Act as the most relevant person to create a course on the topic" +\
+                   user_input + ' and Give a professional course on '
     end_prompt = """. Explain with numerous accurate detail and use engaging clear understandable sentences.
     Start with introduction, divide it to several long paragraphs and end with summarizing conclusion.
     Put @@ in the beginning of each paragraph. """
@@ -41,8 +45,7 @@ def Create_Course(user_input):
         messages=[{"role": "user", "content": text_prompt}],
         temperature=0.1,
         max_tokens=2000,
-        top_p=0.95,
-    )
+        top_p=0.95)
 
     description = description_response['choices'][0]['message']['content'].strip()
     paragraph_list = description.split('@@')
@@ -58,7 +61,8 @@ def Create_Course(user_input):
     images_list = []
 
     for i in indexes:
-        pic_prompt = 'Describe artistic realistic illustration of ' + paragraph_list[i]
+        pic_prompt = 'Describe artistic realistic illustration of ' + \
+            paragraph_list[i]
         pic_responses = openai.Completion.create(
             model="text-davinci-003",
             prompt=pic_prompt,
@@ -67,20 +71,19 @@ def Create_Course(user_input):
             top_p=0.88,
             best_of=1,
             frequency_penalty=0.2,
-            presence_penalty=0
-        )
+            presence_penalty=0)
 
         pic_response = pic_responses['choices'][0]['text'].strip()
 
         image_object = openai.Image.create(
             prompt=pic_response,
             n=1,
-            size="512x512"
-        )
+            size="512x512")
+
         image_url = image_object['data'][0]['url']
 
-        url_response = requests.get(image_url)
-        image = Image.open(BytesIO(url_response.content))
-        images_list.append(image)
+#         url_response = requests.get(image_url)
+#         image = Image.open(BytesIO(url_response.content))
+        images_list.append(image_url)
 
     return paragraph_list, images_list

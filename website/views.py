@@ -7,7 +7,7 @@ import json
 import string
 
 from .Creator import Create_Course
-from .get_question import get_question
+from .Get_Question import Get_Question.py
 from .Chat import Answer_Question
 from .Summarize import Create_Summary
 import random
@@ -82,6 +82,6 @@ def generate_quiz():
     # print(promptText)
 
     # return jsonify({"question": "What are the first 10 digits of pi?", "answer": "3.141592653", "reference": 3})
-    question = get_question(courseParagraphs)
+    question = Get_Question(courseParagraphs)
     print(question)
     return jsonify({"question": question["question"], "reference": question["reference"], "answer": question["answer"]})

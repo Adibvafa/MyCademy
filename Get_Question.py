@@ -8,13 +8,13 @@ def Get_Question(arr):
   package = {}
   package["reference"] = random.randint(1,3)
   paragraph = arr[package["reference"]]
-  question_type = random.randint(1,5)
+  question_type = random.randint(1,4)
   if(question_type <= 2):
     package["question"] = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",
     messages=[{"role": "user", "content": f"Give a difficult multiple choice question on this paragraph without giving the answer: {paragraph}"}],
     temperature=0.1,
-    max_tokens=2300,
+    max_tokens=500,
     top_p=0.95,
   )['choices'][0]['message']['content'].strip()
   elif(question_type == 3):
@@ -22,7 +22,7 @@ def Get_Question(arr):
     model="gpt-3.5-turbo",
     messages=[{"role": "user", "content": f"Give a difficult true/false question where the answer is true on this paragraph without giving the answer: {paragraph}"}],
     temperature=0.1,
-    max_tokens=2300,
+    max_tokens=500,
     top_p=0.95,
   )['choices'][0]['message']['content'].strip()
   else:
@@ -30,7 +30,7 @@ def Get_Question(arr):
     model="gpt-3.5-turbo",
     messages=[{"role": "user", "content": f"Give a difficult true/false question where the answer is false on this paragraph without giving the answer: {paragraph}"}],
     temperature=0.1,
-    max_tokens=2300,
+    max_tokens=500,
     top_p=0.95,
   )['choices'][0]['message']['content'].strip()
   
@@ -39,7 +39,7 @@ def Get_Question(arr):
     model="gpt-3.5-turbo",
     messages=[{"role": "user", "content": f"Give an answer to the question, followed by a comprehensive detailed explanation: {question}"}],
     temperature=0.1,
-    max_tokens=2300,
+    max_tokens=500,
     top_p=0.95,
   )['choices'][0]['message']['content'].strip()
 

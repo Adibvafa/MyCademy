@@ -13,10 +13,10 @@
             <p class="content-paragraphs"><b>{{ i + 1 }}: {{ courseHeaders[i] }}</b> <br> {{ courseParagraphs[i] }}</p>
             <img src="{{ courseImages[0] }}" class="content-images" alt="">
             {% elif i == (courseParagraphs |length) - 3 %}
-            <p class="content-paragraphs"><b>>{{ i + 1 }}: {{ courseHeaders[i] }}</b> <br> {{ courseParagraphs[i] }}</p>
+            <p class="content-paragraphs"><b>{{ i + 1 }}: {{ courseHeaders[i] }}</b> <br> {{ courseParagraphs[i] }}</p>
             <img src="{{ courseImages[1] }}" class="content-images" alt="">
             {% else %}
-            <p class="content-paragraphs without-image"><b>>{{ i + 1 }}: {{ courseHeaders[i] }}</b> <br> {{ courseParagraphs[i] }}</p>
+            <p class="content-paragraphs without-image"><b>{{ i + 1 }}: {{ courseHeaders[i] }}</b> <br> {{ courseParagraphs[i] }}</p>
 
             {% endif %}
             {% endfor %}

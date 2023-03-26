@@ -71,6 +71,7 @@
 .content-paragraphs {
   font-family: "Montserrat";
   font-size: 1.5em;
+  margin-left: 1rem;
 }
 
 .message-holder {

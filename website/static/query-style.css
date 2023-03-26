@@ -172,6 +172,7 @@ textarea:focus:-webkit-placeholder {
   outline: none !important;
   transition: background 0.2s ease;
   cursor: pointer;
+  font-weight: bold;
 }
 #message-submit:hover {
   background: #fff;

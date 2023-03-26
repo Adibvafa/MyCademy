@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Query{% endblock %}
+
+{% block content %}
+<div class="big-container">
+    <div id="content-page">
+        <div id="inner-content">
+            <h1 id="prompt-h1">{{ prompt }}</h1>
+            {% for i in range(courseParagraphs |length) %}
+            {% if i == 0 %}
+                <p class="content-paragraphs">{{ i + 1 }}: {{ courseParagraphs[i] }}</p>
+                <img src="{{ courseImages[0] }}" class="content-images" alt="">
+                {% elif i == (courseParagraphs |length) - 3%}
+                <p class="content-paragraphs">{{ i + 1 }}: {{ courseParagraphs[i] }}</p>
+                <img src="{{ courseImages[1] }}" class="content-images" alt="">
+                {% else %}
+                <p class="content-paragraphs without-image">{{ i + 1 }}: {{ courseParagraphs[i] }}</p>
+
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="input-page">
+        <div id="messages-display">
+            <!-- <div class="message-holder"> -->
+                <!-- <ul class="messages">
+                    <li>kdsjfdjsflkjdf;kjsdf</li>
+                    <li>kdsjfdjsflkjdf;kjsdf</li>
+                    <li>kdsjfdjsflkjdf;kjsdf</li>
+                    <li>kdsjfdjsflkjdf;kjsdf</li>
+                </ul> -->
+            <!-- </div> -->
+        </div>
+        <div id="input-area">
+            <div id="message-box">
+                <input type="text" id="message-input" placeholder="Type message..."></input>
+                <button type="submit" id="message-submit">Send</button>
+              </div>
+              <div id="button-area">
+                  <button id="gen-quiz" class="btn btn-primary my-btn">Quiz Me!</button>
+                  <button id="gen-summary" class="btn btn-primary my-btn">Summarize</button>
+              </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

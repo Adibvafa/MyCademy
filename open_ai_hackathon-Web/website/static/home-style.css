@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.my-container {
+    /* height: 100vh; */
+    width: 100%;
+	height: 100%;
+    /* fallback for old browsers */
+    /* background-color: #4b79a1; */
+    /* gradient */
+    background: linear-gradient(0deg, rgba(127, 127, 213, 1) 14%, rgba(145, 234, 228,0.711922268907563) 90%);
+  }
+  
+  /* center the container element
+  .my-container {
+    margin-top: 50px;
+  } */
+
+  .form-holder {
+      position: relative;
+      top: 130px;
+      /* border-width: 2em; */
+      /* border-color: chartreuse; */
+  }
+  
+  /* style the h1 heading */
+  .my-h1 {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Varela Round', sans-serif;
+    color: #444444;
+    margin-bottom: 30px;
+    text-shadow: 0 .5rem 1rem rgba(50, 0, 100, .1)
+  }
+  
+  /* style the form input */
+  .my-form-control {
+    border-radius: 0;
+    border: 3em;
+    border-color: #333;
+    box-shadow: none;
+    background-color: rgba(10, 10, 10, 0.1);
+    font-size: 16px;
+    color: #333;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* style the submit button */
+  .my-btn-primary {
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background-color: rgba(10, 10, 10, 0.1);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* hover effect for submit button */
+  .my-btn-primary:hover {
+    background-color: rgba(10, 10, 10, 0.1);
+    color: #fff;
+  }
+  
+.form-control {
+    margin-top: 20px; 
+    background-color: transparent; 
+    padding: 20px; 
+    border-radius: 10px; 
+  }
+  
+.my-btn {
+    margin-top: 30px; /* add some space between button and textarea */
+    background-color: #fff;
+    border: 0 solid #e2e8f0;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    color: #0d172a;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 1rem 1.6rem;
+    text-align: center;
+    text-decoration: none #0d172a solid;
+    text-decoration-thickness: auto;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+  }
+
+/* .button-81:hover {
+  background-color: #1e293b;
+  color: #fff;
+} */
+
+

@@ -5,8 +5,7 @@ Summarizes the created course
 """
 
 import openai
-
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 def Create_Summary(paragraphs):

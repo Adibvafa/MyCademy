@@ -8,6 +8,9 @@ import string
 
 from .Creator import Create_Course
 from .get_question import get_question
+from .Chat import Answer_Question
+from .Summarize import Create_Summary
+import random
 
 # courseText
 # quizQuestions
@@ -55,14 +58,14 @@ def generate_response():
     prompt = json.loads(request.data)
     promptText = prompt['text']
     print(promptText)
-    return jsonify({"resp": "Hello User!"})
+    return jsonify({"resp": Answer_Question(promptText)})
 
 @views.route('/generate-summary', methods=['POST'])
 def generate_summary():
     # prompt = json.loads(request.data)
     # promptText = prompt['text']
     # print(promptText)
-    return jsonify({"resp": "Hello User!skjdfnkjsf;ksdjf;sdkjfs;dkjf;kld\nsdijfkdsjfkdsjf"})
+    return jsonify({"resp": Create_Summary(courseParagraphs)})
 
 @views.route('/generate-quiz', methods=['POST'])
 def generate_quiz():
@@ -71,7 +74,9 @@ def generate_quiz():
     # print(promptText)
 
     # return jsonify({"question": "What are the first 10 digits of pi?", "answer": "3.141592653", "reference": 3})
-    return jsonify(get_question(courseParagraphs))
+    question = get_question(courseParagraphs)
+    print(question)
+    return jsonify({"question": question["question"], "reference": question["reference"], "answer": question["answer"]})
 
 # @views.route('/delete-note', methods=['POST'])
 # def delete_note():

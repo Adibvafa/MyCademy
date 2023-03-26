@@ -163,6 +163,19 @@ function addUserMessage() {
         newMessageHolder.appendChild(ul);
         messagesDisplay.appendChild(newMessageHolder);
 
+        ul = document.createElement('ul');
+        ul.classList.add('messages');
+        new_li = document.createElement('li');
+        new_li.classList.add('computer-message');
+        new_li.innerText = "Generating response...";
+        ul.appendChild(new_li);
+
+        newMessageHolder = document.createElement('div');
+        newMessageHolder.classList.add('message-holder');
+        newMessageHolder.classList.add('computer-colour');
+        newMessageHolder.appendChild(ul);
+        messagesDisplay.appendChild(newMessageHolder);
+
         generateResponse(prompt).then(resp => {
             console.log(`property1 is: ${resp}`);
             // new_li = document.createElement('li');
@@ -191,17 +204,33 @@ function addUserMessage() {
 
 function addSummary() {
     const messagesDisplay = document.querySelector('#messages-display');
+
+    let ul = document.createElement('ul');
+    ul.classList.add('messages');
+    let new_li_2 = document.createElement('li');
+    new_li_2.classList.add('computer-message');
+    new_li_2.innerText = "Generating summary...";
+    ul.appendChild(new_li_2);
+
+    let newMessageHolder = document.createElement('div');
+    newMessageHolder.classList.add('message-holder');
+    newMessageHolder.classList.add('computer-colour');
+    newMessageHolder.appendChild(ul);
+    messagesDisplay.appendChild(newMessageHolder);
+
+    messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
+
     generateSummary().then(resp => {
         console.log(`property1 is: ${resp}`);
         
-        let ul = document.createElement('ul');
+        ul = document.createElement('ul');
         ul.classList.add('messages')
-        let new_li_2 = document.createElement('li');
+        new_li_2 = document.createElement('li');
         new_li_2.classList.add('computer-message');
         new_li_2.innerText = "Summary: " + resp;
         ul.appendChild(new_li_2);
 
-        let newMessageHolder = document.createElement('div');
+        newMessageHolder = document.createElement('div');
         newMessageHolder.classList.add('message-holder');
         newMessageHolder.classList.add('computer-colour');
         newMessageHolder.appendChild(ul);
@@ -230,7 +259,7 @@ function addQuiz() {
     messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
     
     generateQuiz().then(resp => {
-        console.log(`property1 is: ${resp}`);
+        console.log(`property1 is: ${resp.question}`);
         ul = document.createElement('ul');
         ul.classList.add('messages');
         new_li_3 = document.createElement('li');

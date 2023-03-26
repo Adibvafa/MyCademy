@@ -6,8 +6,7 @@ Create course with text and images using Create_Course
 
 import os
 import openai
-
-openai.api_key = "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"
+openai.api_key = "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"
 
 from PIL import Image
 import requests
@@ -80,8 +79,8 @@ def Create_Course(user_input):
         )
         image_url = image_object['data'][0]['url']
 
-#         url_response = requests.get(image_url)
-#         image = Image.open(BytesIO(url_response.content))
-        images_list.append(image_url)
+        url_response = requests.get(image_url)
+        image = Image.open(BytesIO(url_response.content))
+        images_list.append(image)
 
     return paragraph_list, images_list

@@ -7,10 +7,6 @@ Summarizes the created course
 import openai
 import os
 
-secret_api_key = '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'
-openai.api_key = secret_api_key
-
-
 def Create_Summary(paragraphs):
     short_paragraphs = []
 

@@ -227,7 +227,7 @@ function addSummary() {
         ul.classList.add('messages')
         new_li_2 = document.createElement('li');
         new_li_2.classList.add('computer-message');
-        new_li_2.innerText = "Summary: " + resp;
+        new_li_2.innerText = "Summary:\n" + resp;
         ul.appendChild(new_li_2);
 
         newMessageHolder = document.createElement('div');
@@ -264,7 +264,7 @@ function addQuiz() {
         ul.classList.add('messages');
         new_li_3 = document.createElement('li');
         new_li_3.classList.add('computer-message');
-        new_li_3.innerText = "Question: " + resp["question"] + ` (from paragraph ${resp["reference"]})`;
+        new_li_3.innerText = `Question: (from paragraph ${resp["reference"]})\n${resp["question"]}`;
         ul.appendChild(new_li_3);
 
         newMessageHolder = document.createElement('div');
@@ -292,7 +292,7 @@ function addQuiz() {
             ul.classList.add('messages');
             new_li_3 = document.createElement('li');
             new_li_3.classList.add('computer-message');
-            new_li_3.innerText = "Answer: " + resp["answer"];
+            new_li_3.innerText = "Answer:\n" + resp["answer"];
             ul.appendChild(new_li_3);
             newMessageHolder = document.createElement('div');
             newMessageHolder.classList.add('message-holder');
@@ -303,14 +303,6 @@ function addQuiz() {
             messagesDisplay.scrollTop = messagesDisplay.scrollHeight;
         });
     });
-    
-    
-    // for (let i = 1; i <= 3; i++) {
-        //     console.log(`Input ${i}:`);
-        //     waitForSubmit().then(userInput => {
-            //       console.log(`User input ${i}: ${userInput}`);
-            //     });
-            // }  
 }
 
 function handleSubmit() {
@@ -319,22 +311,6 @@ function handleSubmit() {
     console.log(`User input received: ${userInput}`);
     });
 }      
-
-// function handleSubmit() {
-//     console.log('Waiting for user input...');
-  
-//     // call waitForSubmit() three times in a for loop
-//     for (let i = 1; i <= 3; i++) {
-//       console.log(`Input ${i}:`);
-//       waitForSubmit().then(userInput => {
-//         console.log(`User input ${i}: ${userInput}`);
-//       });
-//     }
-//   }
-
-
-//   const textbox = document.getElementById('my-textbox');
-//   const submitButton = document.getElementById('my-submit-button');
   
 function waitForSubmit() {
     return new Promise(resolve => {
@@ -368,45 +344,3 @@ function waitForSubmit() {
         submitButton.addEventListener('click', handleInput);
     });
 }
-  
-//   function handleSubmit() {
-//     console.log('Waiting for user input...');
-//     waitForSubmit().then(userInput => {
-//       console.log(`User input received: ${userInput}`);
-//     });
-//   }
-  
-//   submitButton.addEventListener('click', handleSubmit);
-
-
-// // Create an observable
-// const observable = new rxjs.Observable((subscriber) => {
-//     // Subscribe to the keydown event
-//     const keydownSubscription = fromEvent(textInput, 'keydown').subscribe((event) => {
-//       if (event.key === 'Enter' && isQuiz === false) {
-//         subscriber.next('keydown');
-//       }
-//     });
-    
-//     // Subscribe to the click event
-//     const clickSubscription = fromEvent(submitButton, 'click').subscribe(() => {
-//       if (isQuiz === false) {
-//         subscriber.next('click');
-//       }
-//     });
-    
-//     // Return the unsubscribe function
-//     return () => {
-//       keydownSubscription.unsubscribe();
-//       clickSubscription.unsubscribe();
-//     };
-//   });
-  
-//   // Subscribe to the observable
-//   const subscription = observable.subscribe((value) => {
-//     if (value === 'keydown' || value === 'click') {
-//       addUserMessage();
-//       subscription.unsubscribe(); // Unsubscribe from the observable
-//     }
-//   });
-  

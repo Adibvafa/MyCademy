@@ -71,6 +71,7 @@
 .content-paragraphs {
   font-family: "Montserrat";
   font-size: 1.5em;
+  margin-left: 1rem;
 }
 
 .message-holder {
@@ -97,12 +98,17 @@
 }
 
 .user-message {
+  margin-top: -0.8rem;
+  margin-bottom: -0.8rem;
   list-style-image: url("images/user-icon.png");
-  margin-bottom: 0.8rem;
+  text-align: center;
 }
+
 .computer-message {
+  margin-top: -0.8rem;
+  margin-bottom: -0.8rem;
   list-style-image: url("images/computer-icon.jpg");
-  margin-bottom: 0.8rem;
+  text-align: left;
 }
 
 .content-images {
@@ -167,7 +173,9 @@ textarea:focus:-webkit-placeholder {
   outline: none !important;
   transition: background 0.2s ease;
   cursor: pointer;
+  font-weight: bold;
 }
+
 #message-submit:hover {
   background: #fff;
   color: #333;

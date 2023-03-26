@@ -4,7 +4,6 @@ Creator.py
 Create course with text and images using Create_Course
 """
 
-
 import os
 import openai
 
@@ -12,7 +11,7 @@ from PIL import Image
 import requests
 from io import BytesIO
 
-secret_api_key = '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'
+secret_api_key = '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'
 openai.api_key = secret_api_key
 
 
@@ -33,7 +32,7 @@ def Create_Course(user_input):
     # )
     # person = person_response["choices"][0]["message"]["content"]
 
-    begin_prompt = "Act as the most relevant person to create a course on the topic" +\
+    begin_prompt = "Act as the most relevant person to create a course on the topic" + \
                    user_input + ' and Give a professional course on '
     end_prompt = """. Explain with numerous accurate detail and use engaging clear understandable sentences.
     Start with introduction, divide it to several long paragraphs and end with summarizing conclusion.
@@ -44,7 +43,7 @@ def Create_Course(user_input):
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": text_prompt}],
         temperature=0.1,
-        max_tokens=2000,
+        max_tokens=1000,
         top_p=0.95)
 
     description = description_response['choices'][0]['message']['content'].strip()
@@ -62,7 +61,7 @@ def Create_Course(user_input):
 
     for i in indexes:
         pic_prompt = 'Describe artistic realistic illustration of ' + \
-            paragraph_list[i]
+                     paragraph_list[i]
         pic_responses = openai.Completion.create(
             model="text-davinci-003",
             prompt=pic_prompt,
@@ -82,8 +81,8 @@ def Create_Course(user_input):
 
         image_url = image_object['data'][0]['url']
 
-#         url_response = requests.get(image_url)
-#         image = Image.open(BytesIO(url_response.content))
+        #         url_response = requests.get(image_url)
+        #         image = Image.open(BytesIO(url_response.content))
         images_list.append(image_url)
 
     return paragraph_list, images_list

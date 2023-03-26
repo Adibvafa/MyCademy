@@ -12,7 +12,7 @@ from PIL import Image
 import requests
 from io import BytesIO
 
-secret_api_key = ''
+secret_api_key = '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'
 openai.api_key = secret_api_key
 
 

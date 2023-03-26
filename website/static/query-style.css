@@ -97,12 +97,17 @@
 }
 
 .user-message {
+  margin-top: -0.8rem;
+  margin-bottom: -0.8rem;
   list-style-image: url("images/user-icon.png");
-  margin-bottom: 0.8rem;
+  text-align: center;
 }
+
 .computer-message {
+  margin-top: -0.8rem;
+  margin-bottom: -0.8rem;
   list-style-image: url("images/computer-icon.jpg");
-  margin-bottom: 0.8rem;
+  text-align: left;
 }
 
 .content-images {

@@ -41,11 +41,8 @@ def home():
             global prompt, courseParagraphs, courseImages, courseHeaders
             prompt = string.capwords(query, sep=None)
 
-            temp, courseImages = Create_Course(query)
-
-            for i in range(len(temp)):
-                courseHeaders.append(temp[i][:temp[i].find(':') + 1])
-                courseParagraphs.append(temp[i][temp[i].find(':') + 1:])
+            courseHeaders, courseParagraphs, courseImages = Create_Course(
+                query)
 
             return redirect(url_for('views.query'))
             # new_note = Note(data=note, user_id=current_user.id)

@@ -1,1 +1,1 @@
-# CademyAI
+# MyCademy

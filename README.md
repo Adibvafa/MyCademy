@@ -1,7 +1,7 @@
 # MyCademy
-[ChatGPT & Whisper API Global Hackathon
-]([url](https://lablab.ai/event/chatgpt-api-and-whisper-api-global-hackathon/the-cyber-savvy-ninjas/mycademy
-))![image](https://github.com/Adibvafa/MyCademy/assets/90617686/1fbbe227-0d11-4b7d-b6f8-7f2e317b3ec1)
+[ChatGPT & Whisper API - Global Hackathon - Lablab.ai](https://lablab.ai/event/chatgpt-api-and-whisper-api-global-hackathon/the-cyber-savvy-ninjas/mycademy)
+
+![image](https://github.com/Adibvafa/MyCademy/assets/90617686/1fbbe227-0d11-4b7d-b6f8-7f2e317b3ec1)
 
 
 ## About
